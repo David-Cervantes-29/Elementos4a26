@@ -19,14 +19,22 @@ flutter:
   uses-material-design: true
 
 
-assets:
-  - assets/images/COD.png
-  - assets/images/EA.png
-  - assets/images/Fortnite.png
-  - assets/images/GEARS.png
-  - assets/images/luigi's_mansion.png
-  - assets/images/Mario_Maker2.png
-  - assets/images/Mario_Strikers.png
-  - assets/images/Minecraft.png
-  - assets/images/Splatoon2.png
-  - assets/images/Super_Mario_Bros.png
+  assets:
+    - assets/img/Gengar.png
+    - assets/img/Charizard.png
+    - assets/img/Mew.png
+    - assets/img/COD.png
+    - assets/img/EA.png
+    - assets/img/Fortnite.png
+    - assets/img/GEARS.png
+    - assets/img/luigi_mansion.png
+    - assets/img/Mario_Maker2.png
+    - assets/img/Mario_Strikers.png
+    - assets/img/Minecraft.png
+    - assets/img/Splatoon2.png
+    - assets/img/Super_Mario_Bros.png
+    - assets/img/RTX1050.png
+    - assets/img/RTX2050.png
+    - assets/img/RTX3050.png
+    - assets/img/RTX4050.png
+    - assets/img/RTX5050.png 

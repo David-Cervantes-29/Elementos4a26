@@ -18,11 +18,11 @@ class Screen2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             mostrarImagen(1),
-            SizedBox(width: 30),
+            SizedBox(width: 50),
             mostrarImagen(2),
-            SizedBox(width: 30),
+            SizedBox(width: 50),
             mostrarImagen(3),
-            SizedBox(width: 30),
+            SizedBox(width: 50),
           ],
         ),
       ),
@@ -33,13 +33,13 @@ class Screen2 extends StatelessWidget {
     String nombreImagen = '';
     switch (numImagen) {
       case 1:
-        nombreImagen = 'assets/imagenes/poner imagen';
+        nombreImagen = 'assets/img/Gengar.png';
         break;
       case 2:
-        nombreImagen = 'assets/imagenes/poner imagen';
+        nombreImagen = 'assets/img/Charizard.png';
         break;
       case 3:
-        nombreImagen = 'assets/imagenes/poner imagen';
+        nombreImagen = 'assets/img/Mew.png';
         break;
     }
     return Image.asset(nombreImagen, width: 120, fit: BoxFit.fill);

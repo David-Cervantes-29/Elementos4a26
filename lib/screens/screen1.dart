@@ -11,19 +11,29 @@ class Screen1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pantalla 1 ', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.purple,
+        backgroundColor: const Color.fromARGB(255, 0, 0, 217),
       ),
       body: Container(
-        color: Color.fromARGB(255, 176, 161, 203),
+        color: Color.fromARGB(255, 255, 254, 255),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              boton('Ejemplo de Rows', Colors.green, context, Screen2()),
+              boton(
+                'Ejemplo de Rows',
+                const Color.fromARGB(255, 0, 102, 255),
+                context,
+                Screen2(),
+              ),
               SizedBox(height: 20),
-              boton('Ejenplo de ListView', Colors.blue, context, Screen3()),
+              boton('Ejemplo de ListView', Colors.blue, context, Screen3()),
               SizedBox(height: 20),
-              boton('Entrada de Datos', Colors.black, context, Screen4()),
+              boton(
+                'Entrada de Datos',
+                const Color.fromARGB(255, 3, 221, 25),
+                context,
+                Screen4(),
+              ),
             ],
           ),
         ),
