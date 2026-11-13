@@ -12,8 +12,13 @@ class _Screen5State extends State<Screen5> {
   bool _switchValue = false;
   double _slideVlaue = 0.0;
   TextEditingController _textController = TextEditingController();
-  int radioSelected =
-      0; // Variable para almacenar el valor seleccionado del radio button
+  int radioSelected = 0;
+  bool _isChecked1 =
+      false; // Variable para almacenar el valor seleccionado del radio button
+  bool _isChecked2 =
+      false; // Variable para almacenar el valor seleccionado del radio button
+  bool _isChecked3 =
+      false; // Variable para almacenar el valor seleccionado del radio button
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +33,8 @@ class _Screen5State extends State<Screen5> {
           _entradaSwitch(),
           _entradaSlider(),
           _entradaRadio(),
+          _entradasCheck(),
+          ElevatedButton(onPressed: null, child: Text('Guardar Datos')),
         ],
       ),
     );
@@ -38,7 +45,7 @@ class _Screen5State extends State<Screen5> {
     return TextField(
       controller: _textController,
       obscureText: true,
-      obscuringCharacter: '👽',
+      obscuringCharacter: '😶‍🌫️',
       maxLength: 130,
       maxLines: 5,
       decoration: InputDecoration(
@@ -153,5 +160,59 @@ class _Screen5State extends State<Screen5> {
         ReactNative,
       ],
     );
+  }
+
+  Column _entradasCheck() {
+    final Text pregunta = Text('¿Que usas para correr tus apps?');
+    final Row Checks = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        //CheckBox 1|
+        Transform.scale(
+          scale: 1.5,
+          child: Checkbox(
+            value: _isChecked1,
+            onChanged: (value) {
+              setState(() {
+                _isChecked1 = value!;
+                print('CheckBox 1: $_isChecked1');
+              });
+            },
+          ),
+        ),
+        Text('Emulador'),
+
+        //CheckBox 2|
+        Transform.scale(
+          scale: 1.5,
+          child: Checkbox(
+            value: _isChecked2,
+            onChanged: (value) {
+              setState(() {
+                _isChecked2 = value!;
+                print('CheckBox 2: $_isChecked2');
+              });
+            },
+          ),
+        ),
+        Text('Smartphone'),
+
+        //CheckBox 3|
+        Transform.scale(
+          scale: 1.5,
+          child: Checkbox(
+            value: _isChecked3,
+            onChanged: (value) {
+              setState(() {
+                _isChecked3 = value!;
+                print('CheckBox 3: $_isChecked3');
+              });
+            },
+          ),
+        ),
+        Text('Navegador Web'),
+      ],
+    );
+    return Column(children: [pregunta, Checks]);
   }
 }
