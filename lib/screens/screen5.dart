@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/screens/screen6.dart';
 
 class Screen5 extends StatefulWidget {
   const Screen5({super.key});
@@ -8,53 +9,48 @@ class Screen5 extends StatefulWidget {
 }
 
 class _Screen5State extends State<Screen5> {
-  //variables para almacenar los valores de entrada
+  // Variables para almacenar los valores de entrada
   bool _switchValue = false;
-  double _slideVlaue = 0.0;
-  TextEditingController _textController = TextEditingController();
+  double _sliderValue = 0.0;
+  final TextEditingController _textController = TextEditingController();
   int radioSelected = 0;
-  bool _isChecked1 =
-      false; // Variable para almacenar el valor seleccionado del radio button
-  bool _isChecked2 =
-      false; // Variable para almacenar el valor seleccionado del radio button
-  bool _isChecked3 =
-      false; // Variable para almacenar el valor seleccionado del radio button
+  bool _ischecked1 = false;
+  bool _ischecked2 = false;
+  bool _ischecked3 = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Screen 5 ')),
+      appBar: AppBar(title: Text('Screen 5')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('Entrada de Datos'),
-          //Lamadas a los widget de entrada de datos
-          _entradaTexto(),
+          Text('Entradas de datos'),
+          // Llamas a los Widgets de entradas de datos
+          _entradadeTexto(),
           _entradaSwitch(),
           _entradaSlider(),
           _entradaRadio(),
-          _entradasCheck(),
-          ElevatedButton(onPressed: null, child: Text('Guardar Datos')),
+          _entradaCheck(),
+          ElevatedButton(onPressed: _guardar, child: Text('Guardar')),
         ],
       ),
     );
   }
 
-  // 8 + 5 + 5 + 6  = 24
-  TextField _entradaTexto() {
+  TextField _entradadeTexto() {
     return TextField(
       controller: _textController,
-      obscureText: true,
-      obscuringCharacter: '😶‍🌫️',
-      maxLength: 130,
-      maxLines: 5,
+      obscureText: false,
+      maxLength: 128,
+      maxLines: 3,
       decoration: InputDecoration(
         labelText: 'Nombre',
-        hintText: 'Escribe tu nombre',
+        hintText: 'Ingresa tu nombre',
         border: UnderlineInputBorder(),
       ),
       onChanged: (value) {
-        print('valor del TextField: $value');
+        print('Valor del TextField; $value');
       },
     );
   }
@@ -63,14 +59,14 @@ class _Screen5State extends State<Screen5> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text('¿Te Gusta Flutter?'),
+        Text('¿Te gusta flutter?'),
         Switch(
           value: _switchValue,
           onChanged: (value) {
             setState(() {
               _switchValue = value;
-              print('El Valor de Swwitch es: $_switchValue');
-            }); // Accion al cambiar el switch
+              print('El valor del Switch es: $_switchValue');
+            }); //Acción al cambiar el switch
           },
         ),
       ],
@@ -80,20 +76,20 @@ class _Screen5State extends State<Screen5> {
   Column _entradaSlider() {
     return Column(
       children: [
-        Text('Indica que tanto te gusta Flutter: '),
+        Text('Indica que teanto te gusta flutter: '),
         Slider(
           min: 0.0,
           max: 10.0,
-          activeColor: const Color.fromARGB(255, 2, 86, 255),
-          thumbColor: Colors.blueGrey,
-          value: _slideVlaue,
+          activeColor: Colors.blueAccent,
+          thumbColor: const Color.fromARGB(255, 12, 4, 235),
+          value: _sliderValue,
           divisions: 10,
-          label: '${_slideVlaue.round()}',
+          label: '${_sliderValue.round()}',
           onChanged: (value) {
             setState(() {
-              _slideVlaue = value;
-              print('Se Cambio el Slider: $_slideVlaue');
-            });
+              _sliderValue = value;
+              print('Se cambio el slider: $_sliderValue');
+            }); // Accion al cambiar el slider
           },
         ),
       ],
@@ -111,14 +107,14 @@ class _Screen5State extends State<Screen5> {
           onChanged: (value) {
             setState(() {
               radioSelected = value!;
-              print('Seleccion del Boton Radio: $radioSelected');
+              print('Selección del botón radio: $radioSelected');
             });
           },
         ),
       ),
     );
 
-    final ListTile Flutter = ListTile(
+    final ListTile flutter = ListTile(
       title: const Text('Flutter'),
       leading: Transform.scale(
         scale: 1.5,
@@ -128,14 +124,14 @@ class _Screen5State extends State<Screen5> {
           onChanged: (value) {
             setState(() {
               radioSelected = value!;
-              print('Seleccion del Boton Radio: $radioSelected');
+              print('Selección del botón radio: $radioSelected');
             });
           },
         ),
       ),
     );
 
-    final ListTile ReactNative = ListTile(
+    final ListTile reactNative = ListTile(
       title: const Text('React Native'),
       leading: Transform.scale(
         scale: 1.5,
@@ -145,7 +141,7 @@ class _Screen5State extends State<Screen5> {
           onChanged: (value) {
             setState(() {
               radioSelected = value!;
-              print('Seleccion del Boton Radio: $radioSelected');
+              print('Selección del botón radio: $radioSelected');
             });
           },
         ),
@@ -154,58 +150,58 @@ class _Screen5State extends State<Screen5> {
 
     return Column(
       children: [
-        Text('¿Que Prefieres para Desarrollo Movil?'),
+        Text('¿Que prefieres para desarrollo movíl?'),
         kotlin,
-        Flutter,
-        ReactNative,
+        flutter,
+        reactNative,
       ],
     );
   }
 
-  Column _entradasCheck() {
+  Column _entradaCheck() {
     final Text pregunta = Text('¿Que usas para correr tus apps?');
-    final Row Checks = Row(
+    final Row checks = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        //CheckBox 1|
+        // CheckBox 1
         Transform.scale(
           scale: 1.5,
           child: Checkbox(
-            value: _isChecked1,
+            value: _ischecked1,
             onChanged: (value) {
               setState(() {
-                _isChecked1 = value!;
-                print('CheckBox 1: $_isChecked1');
+                _ischecked1 = value!;
+                print('Cehckbox 1: $_ischecked1');
               });
             },
           ),
         ),
         Text('Emulador'),
 
-        //CheckBox 2|
+        // ChecKBox 2
         Transform.scale(
           scale: 1.5,
           child: Checkbox(
-            value: _isChecked2,
+            value: _ischecked2,
             onChanged: (value) {
               setState(() {
-                _isChecked2 = value!;
-                print('CheckBox 2: $_isChecked2');
+                _ischecked2 = value!;
+                print('Cehckbox 2: $_ischecked2');
               });
             },
           ),
         ),
         Text('Smartphone'),
 
-        //CheckBox 3|
+        // CheckBox 3
         Transform.scale(
           scale: 1.5,
           child: Checkbox(
-            value: _isChecked3,
+            value: _ischecked3,
             onChanged: (value) {
               setState(() {
-                _isChecked3 = value!;
-                print('CheckBox 3: $_isChecked3');
+                _ischecked3 = value!;
+                print('Cehckbox 3: $_ischecked3');
               });
             },
           ),
@@ -213,6 +209,23 @@ class _Screen5State extends State<Screen5> {
         Text('Navegador Web'),
       ],
     );
-    return Column(children: [pregunta, Checks]);
+    return Column(children: [pregunta, checks]);
+  }
+
+  void _guardar() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Screen6(
+          nombre: _textController.text,
+          gustaFlutter: _switchValue,
+          nivelFlutter: _sliderValue,
+          radioSelected: radioSelected,
+          emulador: _ischecked1,
+          smartphone: _ischecked2,
+          navegadorWeb: _ischecked3,
+        ),
+      ),
+    );
   }
 }
